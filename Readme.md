@@ -1,0 +1,2 @@
+# E-Commerce Backend
+This is E-commerce backend , Enjoy my code and learn from it. this is production grade code. In this code you will find, that how Good companies works, with files, folders and structure.
