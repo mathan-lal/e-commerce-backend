@@ -1,5 +1,6 @@
 /*import mongoose from "mongoose";
 import {DB_NAME} from './constants.js';*/
+import { app } from "./app.js";
 import connectDB from "./db/index.js";
 import dotenv from 'dotenv';
 /*import express from 'express';
@@ -34,4 +35,12 @@ dotenv.config({
     path: './env'
 })
 
-connectDB();
+/* As you know our connectDB function is aysnc function, that's why it will return promise */
+connectDB()
+.then( () => {
+    app.listen(process.env.PORT || 8001, () => {
+        console.log(`App is running at: ${process.env.PORT}`);
+    });
+}).catch( (err) => {
+    console.log('MongoDB connection failed: ', err);
+})
